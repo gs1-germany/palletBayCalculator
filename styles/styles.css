@@ -1,0 +1,28 @@
+h1 {
+  color: #f06216;
+  font-size: 3em;
+}
+h2 {
+  color: #1e1576;
+}
+input {
+  width: 50px;
+  color: #1e1576;
+}
+#calculator,
+#intro,
+#further {
+  font-size: 1.2em;
+  padding: 1em;
+  border-radius: 1em;
+  background-color: lightgray;
+  color: #1e1576;
+}
+button {
+  font-size: 1.1em;
+  color: #1e1576;
+}
+#pageInfo {
+  font-size: 0.8em;
+  color: #1e1576;
+}

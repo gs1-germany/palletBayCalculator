@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pallet Bay Calculator</title>
+    <link rel="stylesheet" href="styles/styles.css" />
+</head>
+<body>
+    <div>
+        <h1>Pallet Bay Calculator</h1>
+        <h2>a simple heuristic for calculating the number of required pallet bays for an order of trade items</h2>
+    </div>
+    <hr> 
+    <div id="intro">
+        <h2>Preliminary notes</h2>
+        <ul>
+                <li>This heuristic was developed as a basis for optimising the capacity utilisation of trucks.</li>
+                <li>The procedure is deliberately kept simple, thus does not yield exact outputs.</li>
+                <li>At the same time, it was validated by industry and considered to be sufficiently viable.</li>
+                <li>In EDI, indicating the required number of pallet bays may be relevant in ORDERS, IFTMIN, and DESADV.</li>
+        </ul>
+    </div>
+    <hr>
+    <div id="calculator">
+        <h2>Calculate required pallet bays</h2>
+        <div><label for="stackable">Is trade item stackable during transport?
+                <select id="stackable">
+                        <option selected>Select an option</option>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                </select>
+        </label></div>
+        <div>
+            <div><label for="palletCount">Number of trade items per original pallet: <input type="number" min="0" id="palletCount"></label></div>
+            <div><label for="layerCount">Number of trade items per pallet layer: <input type="number" min="0" id="layerCount"></label></div>
+            <div><label for="quantity">Ordered quantity of trade item: <input type="number" min="0" id="quantity"></label></div>
+            <br>
+            <div>
+                <button id="btn" onmouseover="handleMouseOver(event)" onmouseout="handleMouseOut(event)" onclick="calculateBays()">Calculate required pallet bays</button>
+                <br>
+                <br>
+                <output id="outp">Number of required bays: </output>
+            </div>
+        </br>
+        </div>
+    </div>
+    <hr>
+    <div id="further">
+        <h2>Further information</h2>
+        <label>GS1 Germany Recommendation "...": Accessible at https://...</label>
+        <div><label>Contact: ...</label></div>
+    </div>
+    <hr>
+    <div><label id="pageInfo">Last modified: 2020-03-15 | &copy; RalphTro</label></div>
+    <script async src="./javascript/index.js"></script>
+</body>
+</html>
