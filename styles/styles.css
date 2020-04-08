@@ -9,17 +9,23 @@ input {
   width: 50px;
   color: #1e1576;
 }
+output {
+  font-weight: bold;
+}
+ul {
+  font-weight: normal;
+}
 #calculator,
 #intro,
 #further {
   font-size: 1.2em;
   padding: 1em;
   border-radius: 1em;
-  background-color: lightgray;
+  background-color: #F5F2F2;
   color: #1e1576;
 }
 button {
-  font-size: 1.1em;
+  font-size: 1.0em;
   color: #1e1576;
 }
 #pageInfo {
