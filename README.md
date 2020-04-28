@@ -6,7 +6,7 @@ This is a software prototype (current status: <b><i>DRAFT</i></b>) based on a he
 An interactive demo is available at https://ralphtro.github.io/palletBayCalculator/
 
 To calculate the total number of required pallet bays for a given order of trade items, just indicate the data for each order position:
-<img src="PalletBayCalculatorScreenshot.png" | width=200>
+<img src="PalletBayCalculatorScreenshot.png" width="40%">
 
 
 ## Algorithm
