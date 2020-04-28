@@ -5,7 +5,9 @@ This is a software prototype (current status: <b><i>DRAFT</i></b>) based on a he
 ## Demo  
 An interactive demo is available at https://ralphtro.github.io/palletBayCalculator/
 
-To calculate the total number of required pallet bays for a given order of trade items, just indicate the data for each order position.
+To calculate the total number of required pallet bays for a given order of trade items, just indicate the data for each order position:
+<img src="PalletBayCalculatorScreenshot.jpg">
+
 
 ## Algorithm
 For a detailed description, please refer to GS1 Germany 2020: 'Standardisierte Transportplanungskriterien. Eine standardisierte Methode zur Transportplatzberechnung in der FMCG Branche' ('Standardised Transport Planning Criteria. A standardised approach for calculating pallet bays in the FMCG sector')
