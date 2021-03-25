@@ -28,27 +28,38 @@
     <hr>
     <div id="calculator">
         <h2>Calculate required pallet bays</h2>
+
+        <h3>Is double-deck equipment for trucks agreed/available at loading site?</h3>
+        <label class="switch">
+            <input id="equipment" onchange="indicateReply()" type="checkbox" checked>
+            <span class="slider"></span>
+        </label>
+
         <h3>For each order position, provide the following information:</h3>
         <form id="myForm">
             <div><label for="stackable">Is trade item stackable during transport?
-                    <select id="stackable">
-                        <option selected>Select an option</option>
+                    <select class="box" id="stackable">
+                        <option selected>Select</option>
                         <option value="1">Yes</option>
                         <option value="0">No</option>
                     </select>
                 </label></div>
-            <div><label for="doubleDeck">Can another pallet be placed on top (for double deck transport)?
-                    <select id="doubleDeck">
-                        <option selected>Select an option</option>
+            <br>
+            <div><label for="doubleDeck">Can it be loaded on a double-deck trailer?
+                    <select class="box" id="doubleDeck">
+                        <option selected>Select</option>
                         <option value="1">Yes</option>
                         <option value="0">No</option>
                     </select>
                 </label></div>
+            <br>
             <div>
                 <div><label for="palletCount">Number of trade items per original pallet: <input type="number" min="0"
                             id="palletCount"></label></div>
+                            <br>
                 <div><label for="layerCount">Number of trade items per pallet layer: <input type="number" min="0"
                             id="layerCount"></label></div>
+                            <br>
                 <div><label for="quantity">Ordered trade item quantity: <input type="number" min="0"
                             id="quantity"></label></div>
                 <br>
@@ -66,19 +77,7 @@
         </br>
     </div>
     <hr>
-    <div id="further">
-        <h2>Further information</h2>
-        <label>GS1 Germany Recommendation "...": Accessible at https://...</label>
-        <p>
-        <div>Contact:
-            <ul style="list-style-type:square;">
-                <li>Vorname Nachname | vorname.nachname@gs1.de</li>
-                <li>Vorname Nachname | vorname.nachname@gs1.de</li>
-            </ul>
-        </div>
-    </div>
-    <hr>
-    <div><label id="pageInfo">Version 0.1 | Last modified: 2020-04-08 | &copy; RalphTro</label></div>
+    <div><label id="pageInfo">Version 0.3 | Last modified: 2020-04-24 | &copy; RalphTro</label></div>
     <script async src="./javascript/index.js"></script>
 </body>
 
