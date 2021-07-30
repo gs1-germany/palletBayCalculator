@@ -1,113 +1,133 @@
-"use strict";
+"use strict"
 
-let dataArray = [];
-let sum = 0; 
-let subtotal1 = 0; 
-let subtotal2 = 0;
-let subtotal3 = 0;
-let sumStackable = 0; 
-let sumNotStackable =0;
-let sumDouble = 0;
-let i = 1;
+/**
+ * To be done
+ * @param 
+ * @returns 
+ */
 
-function indicateReply() {
-    document.getElementById("equipment").checked;
-    console.log("Double Deck (Y/N): " + document.getElementById("equipment").checked);
-}
+document.addEventListener("DOMContentLoaded", () => {
+    const addButton = document.getElementById("add-row")
+    const clearButton = document.getElementById("delete-data")
+    const table = document.getElementById("overview-table")
 
-function calculateBays() {
-    let oriPal = Math.floor((Number(quantity.value)) / Number(palletCount.value));
-    console.log("Anzahl Originalpaletten: " + oriPal);
+    let sumQuantity = document.getElementById("sum-quantity")
+    let sumOriPal = document.getElementById("sum-ori-pal")
+    let sumSandwichPal = document.getElementById("sum-sandwich-pal")
+    let sumMixPal = document.getElementById("sum-mixed-pal")
+    let sumTotal = document.getElementById("sum-total")
+    /* Variables for column totals (i.e. quantities/pallet bay sums) */
+    let sumItemQuantities = 0
+    let sumOriPalBays = 0
+    let sumSandwichPalBays = 0
+    let sumMixedPalBays = 0
+    let sumTotalBays = 0
 
-    let oriPalRem = Number(quantity.value) % Number(palletCount.value);
-    console.log("Überhang Anzahl bestellte HE: " + oriPalRem);
+    let orderPosCounter = 1
 
-    let oriLay = Math.floor((oriPalRem / Number(layerCount.value)));
-    console.log("Anzahl artikelreine Lagen: " + oriLay);
+    addButton.addEventListener("click", (event) => {
+        /* Is double-deck equipment for trucks agreed/available at loading site? [true/false] */
+        let equipment = document.getElementById("equipment").checked
+        /* Is trade item stackable or capable for double-deck transport? [true/false] */
+        let stackable = document.getElementById("stackable").checked
+        /* Number of trade items per original pallet [Number] */
+        let palletCount = Number(document.getElementById("pallet-count").value)
+        /* Number of trade items per pallet layer [Number] */
+        let layerCount = Number(document.getElementById("layer-count").value)
+        /* Ordered trade item quantity [Number] */
+        let quantity = Number(document.getElementById("quantity").value)
 
-    let itemsInOriLay = oriLay * Number(layerCount.value);
-    console.log("Anzahl HE in Originallagen: " + itemsInOriLay);
+        /* Ensure that all input fields are filled by triggering alert message */
+        if (palletCount == "" || layerCount == "" || quantity == ""){
+            alert("Please fill all input fields")
+        }else{
+            /* Calculate number of original pallets */
+            let oriPal = Math.floor(quantity / palletCount)
+            /* Calculate overhang of ordered trade items from original pallets */
+            let oriPalOverhang = quantity % palletCount
+            /* Calculate number of overhanging single-item/homogeneous layers */
+            let singleItemLayer = Math.floor(oriPalOverhang / layerCount)
+            /* Calculate number of trade items in overhanging single-item/homogeneous layers */
+            let itemsInOriLayers = singleItemLayer * layerCount
+            /* Calculate overhang of trade items from the above single-item/homogeneous layers (i.e. for mixed pallets) */
+            let itemLayerOverhang = oriPalOverhang % layerCount
+            /* Variables for line totals (i.e. values per order position) */
+            let baysForOriPals = 0
+            let baysForSandwichPals = 0
+            let woodPart = 0
+            let baysForMixedPals = 0
 
-    let itemsRem = oriPalRem % Number(layerCount.value); 
-    console.log("Rest HE für Mischpalette: " + itemsRem);
+            if (equipment === true && stackable === true) {
+                /* Calculate the number of pallet bays if original pallets are stackable */
+                baysForOriPals = baysForOriPals + oriPal / 2
+                /* Calculate the number of pallet bays if sandwich pallets are stackable  */
+                baysForSandwichPals = itemsInOriLayers / palletCount / 2
+                /* For each sandwich pallet in a given order position, add 1/16 for wood part  */
+                woodPart = woodPart + (Math.ceil(baysForSandwichPals)) * 1 / 16
+                /* Calculate the number of pallet bays if mixed pallets are stackable  */
+                baysForMixedPals = baysForMixedPals + itemLayerOverhang / palletCount / 2
+                /* Calculate sub-total for stackable pallets */
 
-    if (document.getElementById("stackable").value == "1" && document.getElementById("doubleDeck").value == "1")  {
-        let original1 = oriPal/2;
-        console.log("# Originalpaletten: " + original1);
-        let sandwich1 = itemsInOriLay/Number(palletCount.value)/2 + 1/16;
-        console.log("# Sandwichpaletten: " + sandwich1);
-        let mix1 = itemsRem / Number(palletCount.value)/2; 
-        console.log("# Mischpaletten: " + mix1);
-        let subtotal1 = original1 + sandwich1 + mix1;
-        dataArray[dataArray.length] = ["Order position " + i + ": " + subtotal1.toFixed(2)];
-        sumStackable = sumStackable + subtotal1; 
-    } 
-    else if (document.getElementById("stackable").value == "0") { 
-        let original2 = oriPal;
-        console.log("# Originalpaletten: " + original2);
-        let sandwich2 = itemsInOriLay/Number(palletCount.value) + 1/16;
-        console.log("# Sandwichpaletten: " + sandwich2);
-        let mix2 = itemsRem / Number(palletCount.value); 
-        console.log("# Mischpaletten: " + mix2);
-        let subtotal2 = original2 + sandwich2 + mix2;
-        dataArray[dataArray.length] = ["Order position " + i + ": " + subtotal2.toFixed(2)];
-        sumNotStackable = sumNotStackable + subtotal2; 
-    }
-    else if (document.getElementById("stackable").value == "1" && document.getElementById("doubleDeck").value == "0") { 
-        let original3 = oriPal/2;
-        console.log("# Originalpaletten: " + original3);
-        let sandwich3 = itemsInOriLay/Number(palletCount.value)/2 + 1/16;
-        console.log("# Sandwichpaletten: " + sandwich3);
-        let mix3 = itemsRem / Number(palletCount.value)/2; 
-        console.log("# Mischpaletten: " + mix3);
-        let subtotal3 = original3 + sandwich3 + mix3;
-        dataArray[dataArray.length] = ["Order position " + i + ": " + subtotal3.toFixed(2)];
-        sumDouble = sumDouble + subtotal3; 
-    }
-    console.log("sumDouble: " + sumDouble);
-    console.log("sumStackable: " + sumStackable);
+            } else {
+                /* See if-clause, for non-stackable trade items or if double-deck equipment not agreed/available */
+                baysForOriPals = baysForOriPals + oriPal
+                baysForSandwichPals = itemsInOriLayers / palletCount
+                woodPart = woodPart + (Math.ceil(baysForSandwichPals)) * 1 / 16
+                baysForMixedPals = baysForMixedPals + itemLayerOverhang / palletCount
+            }
 
-    if (sumDouble > sumStackable && document.getElementById("equipment").checked == false) {
-        sum = Math.ceil(sumStackable + sumNotStackable + sumDouble + (sumDouble - sumStackable));
-        console.log("# Summe1: " + sum);
-    }
-    else {
-        sum = Math.ceil(sumStackable + sumNotStackable + sumDouble); 
-        console.log("# Summe2: " + sum);
-    }
-    let dALen = dataArray.length;
-    let text = "<br><br>Your entries:<br>  <ul style='list-style-type:none;'>";
-    for (let j = 0; j < dALen; j++) {
-        text += "<li>" + dataArray[j] + "</li>";
-    }
-    text += "</ul>";
-    total.textContent = "Number of required bays: " + sum;
-    document.getElementById("history").innerHTML = text;
-    document.getElementById("myForm").reset();
-    i++;
-}
+            /* Calculate row/order totals */
+            let subTotalPerRow = baysForOriPals + baysForSandwichPals + woodPart + baysForMixedPals
+            sumItemQuantities = sumItemQuantities + quantity
+            sumOriPalBays = sumOriPalBays + baysForOriPals
+            sumSandwichPalBays = sumSandwichPalBays + baysForSandwichPals + woodPart
+            sumMixedPalBays = sumMixedPalBays + baysForMixedPals
+            sumTotalBays = sumOriPalBays + sumSandwichPalBays + sumMixedPalBays
 
-function handleMouseOver(ev) {
-    ev.target.style.fontSize = "1.3em";
-    ev.target.style.color = "#1e1576";
-}
+            /* Write order position values to table */
+            let row = table.insertRow(orderPosCounter)
+            let cell = row.insertCell()
+            cell.innerText = orderPosCounter
+            cell = row.insertCell()
+            cell.innerText = quantity
+            cell = row.insertCell()
+            cell.innerText = baysForOriPals.toFixed(2)
+            cell = row.insertCell()
+            cell.innerText = (baysForSandwichPals + woodPart).toFixed(2)
+            cell = row.insertCell()
+            cell.innerText = baysForMixedPals.toFixed(2)
+            cell = row.insertCell()
+            cell.innerText = subTotalPerRow.toFixed(2)
 
-function handleMouseOut(ev) {
-    ev.target.style.fontSize = "1.2em";
-    ev.target.style.color = "#F5F2F2";
-}
+            /* Write order totals to table */
+            sumQuantity.innerText = sumItemQuantities
+            sumOriPal.innerText = sumOriPalBays.toFixed(2)
+            sumSandwichPal.innerText = sumSandwichPalBays.toFixed(2)
+            sumMixPal.innerText = sumMixedPalBays.toFixed(2)
+            sumTotal.innerText = Math.ceil(sumTotalBays)
 
-function clearCurrentData() {
-    dataArray = [];
-    document.getElementById("history").innerHTML = dataArray;
-    total.textContent = "";
-    document.getElementById("myForm").reset();
-    i = 1;   
-    sum = 0;
-    subtotal1 = 0;
-    subtotal2 = 0;
-    subtotal3 = 0;
-    sumStackable = 0;
-    sumNotStackable = 0;
-    sumDouble = 0;
-}
+            orderPosCounter++
+
+            /* Clear input fields for new entry */
+            document.getElementById("form").reset();
+            }
+    })
+    /* Reset all (sub-)totals, counters, forms */
+    clearButton.addEventListener("click", (event) => {
+        document.getElementById("form").reset();
+        while (table.rows.length > 2) {
+            table.deleteRow(1);
+        }
+        sumQuantity.innerText = 0
+        sumOriPal.innerText = 0
+        sumSandwichPal.innerText = 0
+        sumMixPal.innerText = 0
+        sumTotal.innerText = 0
+        sumItemQuantities = 0
+        sumOriPalBays = 0
+        sumSandwichPalBays = 0
+        sumMixedPalBays = 0
+        sumTotalBays = 0
+        orderPosCounter = 1
+    })
+})
