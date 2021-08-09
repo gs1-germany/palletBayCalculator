@@ -35,7 +35,7 @@ main {
 label{
   width: 100px;
   display: inline-block; 
-  vertical-align: top;
+  vertical-align: bottom;
 }
 
 form{
@@ -44,6 +44,14 @@ form{
 
 .button-div{
   padding: 1% 1%;
+}
+
+.col-auto{
+  width: 20%;
+}
+
+.form-label, .form-check-label{
+  width: fit-content;
 }
 
 #add-row{
