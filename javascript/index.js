@@ -56,6 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let baysForSandwichPals = 0
             let woodPart = 0
             let baysForMixedPals = 0
+            let stacked = ''         
 
             if (equipment === true && stackable === true) {
                 /* Calculate the number of pallet bays if original pallets are stackable */
@@ -67,6 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 /* Calculate the number of pallet bays if mixed pallets are stackable  */
                 baysForMixedPals = baysForMixedPals + itemLayerOverhang / palletCount / 2
                 /* Calculate sub-total for stackable pallets */
+                stacked = 'Yes'
 
             } else {
                 /* See if-clause, for non-stackable trade items or if double-deck equipment not agreed/available */
@@ -74,6 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 baysForSandwichPals = itemsInOriLayers / palletCount
                 woodPart = woodPart + (Math.ceil(baysForSandwichPals)) * 1 / 16
                 baysForMixedPals = baysForMixedPals + itemLayerOverhang / palletCount
+                stacked = 'No'
             }
 
             /* Calculate row/order totals */
@@ -88,6 +91,8 @@ document.addEventListener("DOMContentLoaded", () => {
             let row = table.insertRow(orderPosCounter)
             let cell = row.insertCell()
             cell.innerText = orderPosCounter
+            cell = row.insertCell()
+            cell.innerText = stacked
             cell = row.insertCell()
             cell.innerText = quantity
             cell = row.insertCell()
