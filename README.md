@@ -14,13 +14,13 @@ To calculate the total number of required pallet bays for a given order of trade
 
 For a detailed description, please refer to the following GS1 Germany guideline:
 
-[Standardisierte Transportplanungskriterien. Eine standardisierte Methode zur Transportplatzberechnung in der FMCG Branche (Standardised Transport Planning Criteria. A standardised approach for calculating pallet bays in the FMCG sector)](URL 'https://www.gs1-germany.de/gs1-standards/umsetzung/fachpublikationen/detailansicht/standardisierte-transportplanungskriterien/artikelnummer/4000001030569/')
+[Standardisierte Transportplanungskriterien. Eine standardisierte Methode zur Transportplatzberechnung in der FMCG Branche (Standardised Transport Planning Criteria. A standardised approach for calculating pallet bays in the FMCG sector)](https://www.gs1-germany.de/gs1-standards/umsetzung/fachpublikationen/detailansicht/standardisierte-transportplanungskriterien/artikelnummer/4000001030569/)
 
 ## License
 
 <img alt="MIT" style="border-width:0" src="https://opensource.org/files/OSIApproved_1.png" width="150px;"/><br />
 
-Copyright 2020-2021 | Ralph Tröger <ralph.troeger@gs1.de>
+Copyright 2020-2022 | Ralph Tröger <ralph.troeger@gs1.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
