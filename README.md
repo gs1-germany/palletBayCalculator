@@ -4,7 +4,7 @@ This is a software prototype based on a heuristic for calculating the number of 
 
 ## Demo
 
-An interactive demo is available at https://ralphtro.github.io/palletBayCalculator/
+An interactive demo is available at https://gs1-germany.github.io/palletBayCalculator
 
 To calculate the total number of required pallet bays for a given order of trade items, just indicate the data for each order position:
 
@@ -20,7 +20,7 @@ For a detailed description, please refer to the following GS1 Germany guideline:
 
 <img alt="MIT" style="border-width:0" src="osi-badge.jpg" width="150px;"/><br />
 
-Copyright 2020-2022 | Ralph Tröger <ralph.troeger@gs1.de>
+Copyright 2020-2023 | Ralph Tröger <ralph.troeger@gs1.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
