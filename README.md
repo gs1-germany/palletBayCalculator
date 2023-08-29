@@ -18,7 +18,7 @@ For a detailed description, please refer to the following GS1 Germany guideline:
 
 ## License
 
-<img alt="MIT" style="border-width:0" src="https://opensource.org/files/OSIApproved_1.png" width="150px;"/><br />
+<img alt="MIT" style="border-width:0" src="osi-badge.jpg" width="150px;"/><br />
 
 Copyright 2020-2022 | Ralph Tröger <ralph.troeger@gs1.de>
 
