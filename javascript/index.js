@@ -17,7 +17,7 @@
 
 /* jshint esversion: 6 */
 
-baysPerOrderPos = (equipment, stackable, palletCount, layerCount, quantity) => {
+export function baysPerOrderPos(equipment, stackable, palletCount, layerCount, quantity) {
     "use strict";
     /* Calculate number of original pallets */
     let oriPal = Math.floor(quantity / palletCount);
@@ -58,6 +58,12 @@ baysPerOrderPos = (equipment, stackable, palletCount, layerCount, quantity) => {
     }
     /* Calculate pallet bay demand per order position */
     let subTotalPerRow = baysForOriPals + baysForSandwichPals + woodPart + baysForMixedPals;
-    let orderPosResults = {stacked: stacked, baysForOriPals: baysForOriPals, baysForSandwichPals: (baysForSandwichPals + woodPart), baysForMixedPals: baysForMixedPals, subTotalPerRow: subTotalPerRow};
-    return (orderPosResults);  
+    let orderPosResults = { stacked: stacked, baysForOriPals: baysForOriPals, baysForSandwichPals: (baysForSandwichPals + woodPart), baysForMixedPals: baysForMixedPals, subTotalPerRow: subTotalPerRow };
+
+    console.log({ equipment, stackable, palletCount, layerCount, quantity, stacked, baysForOriPals, baysForSandwichPals, baysForMixedPals, subTotalPerRow })
+
+    return (orderPosResults);
 };
+
+export default baysPerOrderPos;
+
