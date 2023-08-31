@@ -1,0 +1,24 @@
+{
+  "name": "@gs1-germany/palletBayCalculator",
+  "description": "Heuristic for calculating the number of required pallet bays for an order of trade items. The underlying guideline was developed by a GS1 Germany working group.",
+  "version": "1.0.0",
+  "main": "javascript/index.js",
+  "scripts": {
+    "test": "node javascript/test.js"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gs1-germany/palletBayCalculator"
+  },
+  "keywords": [
+    "GS1",
+    "pallet bay"
+  ],
+  "author": "Ralph Tröger <ralph.troeger@gs1.de>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gs1-germany/palletBayCalculator/issues"
+  },
+  "homepage": "https://github.com/gs1-germany/palletBayCalculator#readme"
+}

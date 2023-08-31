@@ -1,6 +1,8 @@
 /* jshint esversion: 6 */
 /* jshint browser: true */
 
+import baysPerOrderPos from "./index.js"
+
 document.addEventListener("DOMContentLoaded", () => {
     "use strict";
     const addButton = document.getElementById("add-row");
