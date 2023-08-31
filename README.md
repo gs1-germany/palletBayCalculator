@@ -1,3 +1,5 @@
+[![Tests](https://github.com/gs1-germany/palletBayCalculator/actions/workflows/github-actions-npm-build.yml/badge.svg)](https://github.com/gs1-germany/palletBayCalculator/actions/workflows/github-actions-npm-build.yml)
+
 # GS1 Pallet Bay Calculator
 
 This is a software prototype based on a heuristic for calculating the number of required pallet bays for an order of trade items. The underlying guideline was developed by a GS1 Germany working group.
