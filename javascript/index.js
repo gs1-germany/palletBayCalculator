@@ -1,8 +1,11 @@
 /**
- * Returns, for a given order position of trade items, several key-value pairs relevant 
- * for calculating the number of required pallet bays.
- * @param {boolean} equipment - Indication whether double-deck equipment is agreed/available (yes: true, no: false).
- * @param {boolean} stackable - Indication whether trade items are stackable/double-deck capable (yes: true, no: false).
+ * Accepts a specification of a shipment consisting of pallets. Calculates the number of sandwich/mixed pallets (pallet bays) 
+ * for the space-usage-optimized shipment.
+ * 
+ * See https://www.gs1-germany.de/gs1-standards/umsetzung/fachpublikationen/detailansicht/87664/ for the details.
+ * 
+ * @param {boolean} equipment - Indication whether double-deck equipment is agreed/available (yes: true, no: false). This means if pallets may be stacked in the truck.
+ * @param {boolean} stackable - Indication whether trade items are stackable/double-deck capable (yes: true, no: false). This means whether pallets may be stacked (depending on product).
  * @param {number} palletCount - Number of trade items per original pallet. 
  * @param {number} layerCount - Number of trade items per pallet layer.
  * @param {number} quantity - Number of ordered trade items.
