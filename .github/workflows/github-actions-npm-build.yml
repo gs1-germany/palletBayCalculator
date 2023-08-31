@@ -2,7 +2,7 @@ name: Tests
 
 on:
   push:
-    branches: [ main ]
+    branches: [ gh-pages ]
   pull_request:
 
 jobs:
