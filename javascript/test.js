@@ -34,6 +34,55 @@ const testBed = [
         "baysForSandwichPals": 0,
         "baysForMixedPals": 0,
         "subTotalPerRow": 5
+    },
+    {
+        "equipment": false,
+        "stackable": true,
+        "palletCount": 1000,
+        "layerCount": 10,
+        "quantity": 10000,
+        "stacked": false,
+        "baysForOriPals": 10,
+        "baysForSandwichPals": 0,
+        "baysForMixedPals": 0,
+        "subTotalPerRow": 10
+    },
+    {
+        "equipment": false,
+        "stackable": false,
+        "palletCount": 1000,
+        "layerCount": 10,
+        "quantity": 10000,
+        "stacked": false,
+        "baysForOriPals": 10,
+        "baysForSandwichPals": 0,
+        "baysForMixedPals": 0,
+        "subTotalPerRow": 10
+    },
+    {
+        "equipment": true,
+        "stackable": false,
+        "palletCount": 1000,
+        "layerCount": 10,
+        "quantity": 10000,
+        "stacked": false,
+        "baysForOriPals": 10,
+        "baysForSandwichPals": 0,
+        "baysForMixedPals": 0,
+        "subTotalPerRow": 10
+    },
+    // from pdf
+    {
+        "equipment": true,
+        "stackable": true,
+        "palletCount": 60,
+        "layerCount": 10,
+        "quantity": 356,
+        "stacked": true,
+        "baysForOriPals": 2.5,
+        "baysForSandwichPals": 0.4791666666666667,
+        "baysForMixedPals": 0.05,
+        "subTotalPerRow": 3.0291666666666663
     }
 ]
 
@@ -51,7 +100,8 @@ function runTests() {
             || data.baysForMixedPals != result.baysForMixedPals
             || data.subTotalPerRow != result.subTotalPerRow
         ) {
-            throw new Error("Test failed. Expected: " + data + ". Actual: " + result);
+            console.error("❌ test failed. Expected: ", data, "Actual: ", result)
+            throw new Error("Test failed.");
         }
         console.log("✔️")
     }
