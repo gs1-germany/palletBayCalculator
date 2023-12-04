@@ -100,8 +100,8 @@ function runTests() {
             || data.baysForMixedPals != result.baysForMixedPals
             || data.subTotalPerRow != result.subTotalPerRow
         ) {
-            console.error("❌ test failed. Expected: ", data)
-            throw new Error("Test failed. Expected: " + data + ". Actual: " + result);
+            console.error("❌ test failed. Expected: ", data, "Actual: ", result)
+            throw new Error("Test failed.");
         }
         console.log("✔️")
     }
