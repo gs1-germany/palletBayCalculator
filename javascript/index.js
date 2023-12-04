@@ -1,8 +1,11 @@
 /**
- * Returns, for a given order position of trade items, several key-value pairs relevant 
- * for calculating the number of required pallet bays.
- * @param {boolean} equipment - Indication whether double-deck equipment is agreed/available (yes: true, no: false).
- * @param {boolean} stackable - Indication whether trade items are stackable/double-deck capable (yes: true, no: false).
+ * Accepts a specification of a shipment consisting of pallets. Calculates the number of sandwich/mixed pallets (pallet bays) 
+ * for the space-usage-optimized shipment.
+ * 
+ * See https://www.gs1-germany.de/gs1-standards/umsetzung/fachpublikationen/detailansicht/87664/ for the details.
+ * 
+ * @param {boolean} equipment - Indication whether double-deck equipment is agreed/available (yes: true, no: false). This means if pallets may be stacked in the truck.
+ * @param {boolean} stackable - Indication whether trade items are stackable/double-deck capable (yes: true, no: false). This means whether pallets may be stacked (depending on product).
  * @param {number} palletCount - Number of trade items per original pallet. 
  * @param {number} layerCount - Number of trade items per pallet layer.
  * @param {number} quantity - Number of ordered trade items.
@@ -17,7 +20,7 @@
 
 /* jshint esversion: 6 */
 
-baysPerOrderPos = (equipment, stackable, palletCount, layerCount, quantity) => {
+export function baysPerOrderPos(equipment, stackable, palletCount, layerCount, quantity) {
     "use strict";
     /* Calculate number of original pallets */
     let oriPal = Math.floor(quantity / palletCount);
@@ -58,6 +61,12 @@ baysPerOrderPos = (equipment, stackable, palletCount, layerCount, quantity) => {
     }
     /* Calculate pallet bay demand per order position */
     let subTotalPerRow = baysForOriPals + baysForSandwichPals + woodPart + baysForMixedPals;
-    let orderPosResults = {stacked: stacked, baysForOriPals: baysForOriPals, baysForSandwichPals: (baysForSandwichPals + woodPart), baysForMixedPals: baysForMixedPals, subTotalPerRow: subTotalPerRow};
-    return (orderPosResults);  
+    let orderPosResults = { stacked: stacked, baysForOriPals: baysForOriPals, baysForSandwichPals: (baysForSandwichPals + woodPart), baysForMixedPals: baysForMixedPals, subTotalPerRow: subTotalPerRow };
+
+    console.log({ equipment, stackable, palletCount, layerCount, quantity, stacked, baysForOriPals, baysForSandwichPals, baysForMixedPals, subTotalPerRow })
+
+    return (orderPosResults);
 };
+
+export default baysPerOrderPos;
+
