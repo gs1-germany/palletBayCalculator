@@ -16,7 +16,9 @@ To calculate the total number of required pallet bays for a given order of trade
 
 For a detailed description, please refer to the following GS1 Germany guideline:
 
-[Standardisierte Transportplanungskriterien. Eine standardisierte Methode zur Transportplatzberechnung in der FMCG Branche (Standardised Transport Planning Criteria. A standardised approach for calculating pallet bays in the FMCG sector)](https://www.gs1-germany.de/gs1-standards/umsetzung/fachpublikationen/detailansicht/standardisierte-transportplanungskriterien/artikelnummer/4000001030569/)
+[Standardisierte Transportplanungskriterien. Eine standardisierte Methode zur Transportplatzberechnung in der FMCG Branche (Standardised Transport Planning Criteria. A standardised approach for calculating pallet bays in the FMCG sector)](https://www.gs1-germany.de/gs1-standards/umsetzung/fachpublikationen/detailansicht/87664/)
+
+
 
 ## License
 
