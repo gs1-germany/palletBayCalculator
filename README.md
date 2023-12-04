@@ -4,11 +4,6 @@
 
 This is a software prototype based on a heuristic for calculating the number of required pallet bays for an order of trade items. The underlying guideline was developed by a GS1 Germany working group.
 
-## Status of this project
-
-**This repository is no longer maintained and may be archived in the upcoming future. 
-For an up-to-date and maintained version, go to this repository, forked and operated by GS1 Germany: https://github.com/gs1-germany/palletBayCalculator**
-
 ## Demo
 
 An interactive demo is available at https://gs1-germany.github.io/palletBayCalculator
