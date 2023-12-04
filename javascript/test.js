@@ -75,14 +75,14 @@ const testBed = [
     {
         "equipment": true,
         "stackable": true,
-        "palletCount": 356,
-        "layerCount": 60,
-        "quantity": 10,
+        "palletCount": 60,
+        "layerCount": 10,
+        "quantity": 356,
         "stacked": true,
-        "baysForOriPals": 5,
-        "baysForSandwichPals": 5,
-        "baysForMixedPals": 0.014044943820224719,
-        "subTotalPerRow": 0.014044943820224719
+        "baysForOriPals": 2.5,
+        "baysForSandwichPals": 0.4791666666666667,
+        "baysForMixedPals": 0.05,
+        "subTotalPerRow": 3.0291666666666663
     }
 ]
 
