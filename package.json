@@ -1,5 +1,5 @@
 {
-  "name": "@gs1-germany/palletBayCalculator",
+  "name": "@gs1-germany/palletbaycalculator",
   "description": "Heuristic for calculating the number of required pallet bays for an order of trade items. The underlying guideline was developed by a GS1 Germany working group.",
   "version": "1.0.0",
   "main": "javascript/index.js",
