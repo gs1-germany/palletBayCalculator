@@ -59,13 +59,13 @@ You are welcome to integrate the source code on which this online demo is based 
 
 For a detailed description, please refer to the following GS1 Germany guideline:
 
-[Standardisierte Transportplanungskriterien. Eine standardisierte Methode zur Transportplatzberechnung in der FMCG Branche (Standardised Transport Planning Criteria. A standardised approach for calculating pallet bays in the FMCG sector)](https://www.gs1-germany.de/gs1-standards/umsetzung/fachpublikationen/detailansicht/87664/)
+[Standardisierte Transportplanungskriterien. Eine standardisierte Methode zur Transportplatzberechnung in der FMCG Branche (Standardised Transport Planning Criteria. A standardised approach for calculating pallet bays in the FMCG sector)](https://www.gs1-germany.de/fileadmin/gs1/fachpublikationen/Standardisierte-Transportplanungskriterien.pdf)
 
 ## License
 
 <img alt="MIT" style="border-width:0" src="/images/osi-badge.jpg" width="150px;"/><br />
 
-Copyright 2020-2023 | Ralph Tröger <ralph.troeger@gs1.de>
+Copyright 2020-2025 | Ralph Tröger <ralph.troeger@gs1.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
